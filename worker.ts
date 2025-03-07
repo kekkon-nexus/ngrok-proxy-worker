@@ -1,10 +1,11 @@
 interface Env {
-	TARGET_URL: string;
+	NGROK_DOMAIN: string;
 }
 
 export default {
 	async fetch(request, env) {
-		const targetURL = new URL(env.TARGET_URL);
+		const targetURL = new URL(request.url);
+		targetURL.hostname = env.NGROK_DOMAIN;
 		const newRequest = new Request(targetURL, request);
 		newRequest.headers.set("ngrok-skip-browser-warning", "1");
 
