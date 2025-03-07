@@ -1,3 +1,6 @@
 name = "ngrok-proxy-worker"
 main = "worker.ts"
 compatibility_date = "2024-11-11"
+
+[observability.logs]
+enabled = true
